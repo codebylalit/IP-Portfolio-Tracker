@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Portfolio Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Additional custom styles for dark theme */
+        body {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .header-bg {
+            background-color: #2d3748;
+        }
+        .form-bg {
+            background-color: #2d3748;
+        }
+        .button-bg {
+            background-color: #4a5568;
+        }
+        .button-bg:hover {
+            background-color: #2d3748;
+        }
+        .input-bg {
+            background-color: #2d3748;
+            border-color: #4a5568;
+        }
+        .input-bg:focus {
+            border-color: #a0aec0;
+            box-shadow: 0 0 0 1px #a0aec0;
+        }
+        .card-bg {
+            background-color: #2d3748;
+        }
+        .text-blue {
+            color: #63b3ed;
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+
+    <!-- Header Component -->
+    <header class="header-bg text-gray-100 p-6 shadow-lg">
+        <h1 class="text-center text-3xl font-bold">Intellectual Property Portfolio Tracker</h1>
+    </header>
+
+    <!-- IP Search Section Component -->
+    <section class="card-bg rounded-lg shadow-lg p-6 my-8 mx-auto w-full max-w-4xl">
+        <div class="flex gap-4 items-center">
+            <input type="text" id="patentSearchInput" placeholder="Search by title, type, date, or description..." class="flex-1 p-3 border border-gray-600 rounded shadow-sm input-bg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <button onclick="searchIP()" class="p-3 button-bg text-gray-100 rounded shadow-md hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-400">
+                Search
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <main class="container mx-auto my-8 p-4 space-y-8">
+
+        <!-- Add IP Form Component -->
+        <section class="card-bg rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-400">Add Intellectual Property</h2>
+            <form id="ipForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input type="text" id="ipTitle" placeholder="Title" class="p-3 border border-gray-600 rounded shadow-sm input-bg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <select id="ipType" class="p-3 border border-gray-600 rounded shadow-sm input-bg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="Patent">Patent</option>
+                    <option value="Trademark">Trademark</option>
+                    <option value="Copyright">Copyright</option>
+                </select>
+                <input type="date" id="ipDate" class="p-3 border border-gray-600 rounded shadow-sm input-bg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <textarea id="ipDescription" placeholder="Description" class="p-3 border border-gray-600 rounded shadow-sm input-bg focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+                <button type="submit" class="col-span-2 p-3 button-bg text-gray-100 rounded shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    Add IP
+                </button>
+            </form>
+        </section>
+
+        <!-- IP List Component -->
+        <section class="card-bg rounded-lg shadow-lg p-6">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-400">Your IP Portfolio</h2>
+            <div id="ipList" class="space-y-4">
+                <!-- IP items will be displayed here -->
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
